@@ -404,8 +404,8 @@
   .sidebar-link:focus:not(:focus-visible){outline:none;}
   /* 區分線 + 社群 icon + 底部資訊 */
   .sidebar-divider{border:none;border-top:2px solid #12131a;margin:16px 0 14px;}
-  .sidebar-social{display:grid;grid-template-columns:1fr 1fr;gap:12px;justify-items:center;align-items:center;padding:0 6px;}
-  .sidebar-social a{display:flex;align-items:center;justify-content:center;width:100%;height:58px;}
+  .sidebar-social{display:grid;grid-template-columns:repeat(2,52px);gap:14px;justify-content:center;justify-items:center;align-items:center;padding:0;}
+  .sidebar-social a{display:flex;align-items:center;justify-content:center;width:52px;height:52px;}
   .sidebar-social img,.sidebar-social svg{height:52px;width:52px;display:block;}
   .sidebar-social a:active{transform:translate(2px,2px);}
   .sidebar-credit{margin:16px 0 4px;text-align:center;font-size:11px;color:#8a8a93;letter-spacing:.5px;}
@@ -562,7 +562,7 @@
   ];
 
   function randomPastel(){
-    var palette = ["#FF0000","#00A000","#0000FF","#FF00FF","#008080","#FF8000","#8000FF","#C00000"];
+    var palette = ["#00A000","#FF8000","#FF00FF"];
     return palette[Math.floor(Math.random()*palette.length)];
   }
 
@@ -662,7 +662,7 @@
   sidebarNav.appendChild(dreamNTitle);
 
   var dreamNLinks = [
-    {label:"跑班路線查詢網站", href:"https://lihi1.me/XVRyu"},
+    {label:"跑班介紹網站", href:"https://lihi1.me/XVRyu"},
     {label:"兩天活動回饋表單", href:"https://lihi1.me/ekrc6"}
   ];
   dreamNLinks.forEach(function(item){
@@ -815,7 +815,7 @@
     }
 
     el.textContent = msg.text;
-    el.style.color = msg.isSelf ? "#0000FF" : msg.color;
+    el.style.color = msg.isSelf ? "#FF00FF" : msg.color;
     el.style.fontSize = fontSize + "px";
 
     var jitter = (Math.random() * trackH * 0.2) - (trackH * 0.1);
@@ -913,7 +913,7 @@
     var text = msgInput.value.trim();
     if(!text || !currentClassId) return;
 
-    var msg = {text: text, isSelf: true, color: "#0000FF", ts: new Date()};
+    var msg = {text: text, isSelf: true, color: "#FF00FF", ts: new Date()};
     messagesStore[currentClassId].push(msg);
     appendHistoryRow(msg);
     historyListEl.parentElement.scrollTop = historyListEl.parentElement.scrollHeight;
